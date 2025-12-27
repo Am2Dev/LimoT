@@ -1,0 +1,38 @@
+# Xcode
+*.xcodeproj
+*.xcworkspace
+*.xcuserdata
+*.xcuserdatad
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Swift Playgrounds
+*.playgroundbook/
+*.playground/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.swp
+*.swo
+*~
+.#*
