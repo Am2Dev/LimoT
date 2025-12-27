@@ -4,7 +4,6 @@
 
 import SwiftUI
 import WebKit
-import Combine
 
 // MARK: - WebView ViewModel (MVVM Pattern)
 
@@ -20,15 +19,19 @@ class WebViewModel: ObservableObject {
     // WebView-Referenz
     var webView: WKWebView?
     
-    // Haupt-URL der Webseite
-    let homeURL = URL(string: "https://www.loghatnameh.de")!
+    // Haupt-URL der Webseite (sichere Initialisierung mit garantiert gültiger URL)
+    let homeURL: URL = {
+        guard let url = URL(string: "https://www.loghatnameh.de") else {
+            fatalError("Ungültige Home URL")
+        }
+        return url
+    }()
     
     // Content Rule List für Werbeblocker (wird asynchron geladen)
     private var contentRuleList: WKContentRuleList?
     
     // Flag zur Vermeidung von Race Conditions
     private var isRuleListLoading = false
-    private var ruleListLoadCompletion: (() -> Void)?
     
     init() {
         setupContentRuleList()
@@ -89,10 +92,6 @@ class WebViewModel: ObservableObject {
             
             // Markiere Laden als abgeschlossen
             self.isRuleListLoading = false
-            
-            // Rufe Completion-Handler auf, falls vorhanden
-            self.ruleListLoadCompletion?()
-            self.ruleListLoadCompletion = nil
         }
     }
     
