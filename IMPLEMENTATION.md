@@ -272,9 +272,8 @@ func addBookmark() {
 - **Minimum:** iOS 16.0 (async/await Support)
 - **Target:** iOS 17.0+ (optimale Performance)
 - **APIs:**
-  - SwiftUI 4.0+
+  - SwiftUI 4.0+ (inkl. @Published und @ObservedObject)
   - WebKit Framework
-  - Combine Framework
 
 ### Devices
 - iPhone (alle Größen)
@@ -306,7 +305,7 @@ LimoT demonstriert moderne iOS-Entwicklung mit:
 - SwiftUI für deklarative UI
 - MVVM für saubere Architektur
 - WebKit für Web-Content
-- Combine für reaktive Updates
+- SwiftUI's reaktives System (@Published/@ObservedObject) für State Management
 
 Die App ist produktionsreif für Swift Playgrounds und kann als Basis für erweiterte Browser-Apps dienen.
 
